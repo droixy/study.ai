@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyAI — Intelligence for Every Subject</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Marked.js for Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+
+  <!-- Highlight.js for code blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Sidebar ── -->
+    <aside id="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">StudyAI</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Workspace</div>
+        <a class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">⬡</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="nav-section-label">AI Assistants</div>
+        <a class="nav-item" data-page="chatgpt">
+          <span class="nav-icon ai-gpt">◉</span>
+          <span>ChatGPT</span>
+          <span class="nav-badge gpt-badge">General</span>
+        </a>
+        <a class="nav-item" data-page="perplexity">
+          <span class="nav-icon ai-perp">◈</span>
+          <span>Perplexity</span>
+          <span class="nav-badge perp-badge">Research</span>
+        </a>
+        <a class="nav-item" data-page="claude">
+          <span class="nav-icon ai-claude">◆</span>
+          <span>Claude</span>
+          <span class="nav-badge claude-badge">Writing</span>
+        </a>
+        <a class="nav-item" data-page="flashcards">
+          <span class="nav-icon ai-turbo">⬟</span>
+          <span>Flashcards</span>
+          <span class="nav-badge turbo-badge">Turbo</span>
+        </a>
+        <a class="nav-item" data-page="wolfram">
+          <span class="nav-icon ai-wolfram">∑</span>
+          <span>Wolfram</span>
+          <span class="nav-badge wolfram-badge">Math</span>
+        </a>
+
+        <div class="nav-section-label">System</div>
+        <a class="nav-item" data-page="settings">
+          <span class="nav-icon">⚙</span>
+          <span>Settings & API Keys</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div id="api-status">
+          <div class="status-dot" id="status-gpt" title="OpenAI"></div>
+          <div class="status-dot" id="status-perp" title="Perplexity"></div>
+          <div class="status-dot" id="status-claude" title="Anthropic"></div>
+          <div class="status-dot" id="status-wolfram" title="Wolfram"></div>
+        </div>
+        <span class="sidebar-version">v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- ── Mobile Header ── -->
+    <header id="mobile-header">
+      <button id="sidebar-toggle">☰</button>
+      <span class="mobile-logo">✦ StudyAI</span>
+      <button id="settings-shortcut" data-page="settings">⚙</button>
+    </header>
+
+    <!-- ── Main Content ── -->
+    <main id="main-content">
+      <div id="page-container">
+        <!-- Dynamic content injected by app.js -->
+        <div id="loading-screen">
+          <div class="loading-spinner"></div>
+          <p>Initializing StudyAI…</p>
+        </div>
+      </div>
+    </main>
+
+  </div><!-- #app -->
+
+  <!-- ── Toast Notifications ── -->
+  <div id="toast-container"></div>
+
+  <!-- ── Modals ── -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal-box">
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
