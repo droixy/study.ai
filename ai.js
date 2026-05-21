@@ -1,7 +1,7 @@
 // routes/ai.js — AI proxy routes (all API keys stay server-side)
 const express = require("express");
 const OpenAI = require("openai");
-const Anthropic = require("anthropic").default;
+const Anthropic = require("@anthropic-ai/sdk").default;
 const axios = require("axios");
 const authMiddleware = require("../middleware/auth");
 const { tokenMiddleware, recordUsage } = require("../middleware/tokens");
